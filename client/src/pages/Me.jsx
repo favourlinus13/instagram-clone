@@ -40,8 +40,15 @@ function Me() {
           width={120}
         />
 
-        <button onClick={() => navigate("/profile/edit")}>Edit Profile</button>
-
+        {isOwnProfile && (
+          <>
+            <button onClick={() => navigate("/profile/edit")}>
+              Edit Profile
+            </button>
+            <button onClick={() => navigate("/saved")}>Saved Posts</button>
+          </>
+        )}
+        
         <h3>{usersProfile.fullname}</h3>
         <p>@{usersProfile.username}</p>
         <p>{usersProfile.bio}</p>
