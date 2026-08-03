@@ -11,7 +11,15 @@ const notificationRoutes = require("./routes/notification.routes");
 const app = express();
 
 app.use(express.json());
-app.use(cors());
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173",
+      "https://instagram-clone-cyan-six.vercel.app",
+    ],
+    credentials: true,
+  })
+);
 app.use(morgan("dev"));
 
 app.use("/api/auth", authRoutes);
